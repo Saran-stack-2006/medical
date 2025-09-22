@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ medicine.name }} - Medicine Info</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #e0eafc;
+      --bg-gradient: linear-gradient(to right, #e0eafc, #cfdef3);
+      --card-bg: #fff;
+      --text-color: #333;
+      --subtext-color: #444;
+      --alt-bg: #f2f2f2;
+      --hover-bg: #d9eaf7;
+    }
+
+    body.dark {
+      --bg-color: #0d1117;
+      --bg-gradient: linear-gradient(to right, #0d1117, #161b22);
+      --card-bg: #1c1f26;
+      --text-color: #f1f1f1;
+      --subtext-color: #ddd;
+      --alt-bg: #2c313a;
+      --hover-bg: #333945;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-gradient);
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      transition: all 0.4s ease;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 600px;
+      animation: fadeInUp 1s ease-out;
+      color: var(--text-color);
+      transition: all 0.4s ease;
+    }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 2em;
+      color: var(--text-color);
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+
+    .status {
+      font-size: 1.2em;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .available {
+      color: green;
+      animation: pulse 1.2s infinite;
+    }
+
+    .not-available {
+      color: red;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .alt-list {
+      margin-top: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      background: var(--alt-bg);
+      padding: 10px 15px;
+      margin: 8px 0;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+
+    li:hover {
+      background: var(--hover-bg);
+      transform: scale(1.02);
+    }
+
+    h4 {
+      margin-top: 25px;
+      color: var(--subtext-color);
+    }
+
+    .no-alt {
+      color: #888;
+      font-style: italic;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #222;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      z-index: 999;
+      transition: 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌗 Toggle Mode</button>
+
+  <div class="card">
+    <h2>{{ medicine.name }}</h2>
+    <p><strong>Category:</strong> {{ medicine.category.name }}</p>
+    <p class="status">
+      {% if medicine.available %}
+        <span class="available">✅ Available</span>
+      {% else %}
+        <span class="not-available">❌ Not Available</span>
+      {% endif %}
+    </p>
+
+    {% if not medicine.available %}
+      <div class="alt-list">
+        <h4>Suggested Alternatives:</h4>
+        {% if alternatives %}
+          <ul>
+            {% for alt in alternatives %}
+              <li>{{ alt.name }} <small>({{ alt.category.name }})</small></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="no-alt">No alternatives available.</p>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+</body>
+</html>

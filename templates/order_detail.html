@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - 247 Pharmed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f9f9f9, #e0ffe0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .details-container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: left;
+        }
+        h2 {
+            color: #2d6a4f;
+            text-align: center;
+        }
+        .detail {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .cancel-btn {
+            background-color: #e63946;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto 0;
+            transition: background 0.3s ease;
+        }
+        .cancel-btn:hover {
+            background-color: #c1121f;
+        }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            color: #e63946;
+            font-weight: bold;
+        }
+        .note {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+        }
+        .logo {
+            width: 60px;
+            display: block;
+            margin: 0 auto 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="details-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/3202/3202926.png" alt="247 Pharmed Logo" class="logo">
+        <h2>Order Details</h2>
+
+        <p class="detail"><strong>Order ID:</strong> {{ order.order_id }}</p>
+        <p class="detail"><strong>Product:</strong> {{ order.product }}</p>
+        <p class="detail"><strong>Status:</strong> {{ order.status }}</p>
+        <p class="detail"><strong>Amount:</strong> ₹{{ order.amount }}</p>
+
+        {% if order.is_cancellable %}
+        <form method="post" action="{% url 'cancel_order' order.order_id %}">
+            {% csrf_token %}
+            <button type="submit" class="cancel-btn">Cancel Order</button>
+        </form>
+        {% else %}
+        <p class="note">This order cannot be cancelled (Already Shipped).</p>
+        {% endif %}
+
+        {% for message in messages %}
+            <p class="message">{{ message }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search & Browse Tests</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .search-section {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+    }
+    .card-test {
+      transition: transform 0.3s ease-in-out;
+    }
+    .card-test:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+    <div class="search-section text-center">
+      <h2 class="text-primary mb-4">Search & Browse Medical Tests</h2>
+      <div class="input-group mb-4 w-75 mx-auto">
+        <input type="text" class="form-control" placeholder="Search by name, category, or symptoms" id="searchInput">
+        <button class="btn btn-primary" onclick="searchTests()">Search</button>
+      </div>
+      <div id="results" class="row g-4"></div>
+    </div>
+  </div>
+
+  <script>
+    const testCatalog = [
+      { name: "TSH", category: "Thyroid", symptoms: ["Fatigue", "Weight gain"] },
+      { name: "T3", category: "Thyroid", symptoms: ["Palpitations", "Sweating"] },
+      { name: "T4", category: "Thyroid", symptoms: ["Anxiety", "Weight loss"] },
+      { name: "Blood Sugar", category: "Diabetes", symptoms: ["Increased thirst", "Frequent urination"] },
+      { name: "Liver Function Test", category: "Liver", symptoms: ["Jaundice", "Fatigue"] },
+      { name: "Vitamin D", category: "Vitamins", symptoms: ["Bone pain", "Weakness"] }
+    ];
+
+    function searchTests() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.innerHTML = "";
+
+      const filteredTests = testCatalog.filter(test =>
+        test.name.toLowerCase().includes(input) ||
+        test.category.toLowerCase().includes(input) ||
+        test.symptoms.some(symptom => symptom.toLowerCase().includes(input))
+      );
+
+      if (filteredTests.length === 0) {
+        resultsDiv.innerHTML = `<div class='col-12'><div class='alert alert-warning text-center'>No matching tests found.</div></div>`;
+        return;
+      }
+
+      filteredTests.forEach(test => {
+        resultsDiv.innerHTML += `
+          <div class="col-md-4">
+            <div class="card card-test shadow h-100">
+              <div class="card-body">
+                <h5 class="card-title text-primary">${test.name}</h5>
+                <p class="card-text"><strong>Category:</strong> ${test.category}</p>
+                <p class="card-text"><strong>Symptoms:</strong> ${test.symptoms.join(", ")}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+  </script>
+
+</body>
+</html>

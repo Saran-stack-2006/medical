@@ -1,0 +1,8 @@
+<h2>📋 All Tablets</h2>
+<ul>
+  {% for tablet in tablets %}
+    <li>
+      <a href="{% url 'tablet_detail' tablet.id %}">{{ tablet.name }}</a>
+    </li>
+  {% endfor %}
+</ul>

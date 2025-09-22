@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medicine List</title>
+    <style>
+        .prescription-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h2>🩺 Medicine List</h2>
+    <ul>
+        {% for med in medicines %}
+        <li>
+            <strong>{{ med.name }}</strong>
+            {% if med.requires_prescription %}
+                <span class="prescription-tag">Prescription Required</span>
+            {% endif %}
+            <br>
+            Composition: {{ med.composition }}<br>
+            Dosage: {{ med.dosage }}<br>
+            Side Effects: {{ med.side_effects }}
+        </li>
+        <hr>
+        {% endfor %}
+    </ul>
+</body>
+</html>

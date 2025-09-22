@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily & Weekly Deals</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+    }
+
+    .deals-banner {
+      background: linear-gradient(135deg, #00c9ff, #92fe9d);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .deals-banner::before,
+    .deals-banner::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .deals-banner::before {
+      top: -50px;
+      left: -50px;
+    }
+
+    .deals-banner::after {
+      bottom: -50px;
+      right: -50px;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .deals-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .deals-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .deal-card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .deal-card {
+      background: white;
+      color: #333;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 280px;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .deal-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .deal-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #007b5e;
+    }
+
+    .deal-description {
+      font-size: 1rem;
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #ff6f61;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="deals-banner">
+    <h1 class="deals-title">🔥 Daily & Weekly Deals</h1>
+    <p class="deals-subtitle">Don't miss these time-sensitive health care savings!</p>
+  </div>
+
+  <div class="deal-card-container">
+    <div class="deal-card">
+      <div class="badge">Daily Deal</div>
+      <div class="deal-title">Flat 20% off - Flu Medicines</div>
+      <div class="deal-description">Keep yourself protected this season with instant savings on all flu-related medicines. Valid only today!</div>
+    </div>
+
+    <div class="deal-card">
+      <div class="badge">Weekly Deal</div>
+      <div class="deal-title">Combo Offer - Pain Relief Kit</div>
+      <div class="deal-description">Get a complete pain management combo with pain balm, tablets, and spray at just ₹199. Valid this week!</div>
+    </div>
+
+    <div class="deal-card">
+      <div class="badge">Hot Deal</div>
+      <div class="deal-title">25% Off - Diabetes Essentials</div>
+      <div class="deal-description">On all major diabetic medicines & supplements. Stay in control, save more!</div>
+    </div>
+  </div>
+</body>
+</html>

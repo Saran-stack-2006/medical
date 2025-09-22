@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Lab Prices</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    .search-box {
+      max-width: 600px;
+      margin: auto;
+    }
+    .table-container {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+    <div class="hero">
+      <h1 class="display-5 fw-bold text-primary">Compare Lab Test Prices</h1>
+      <p class="lead">Search and compare diagnostic test prices across top labs</p>
+
+      <div class="search-box mt-4">
+        <div class="input-group">
+          <input type="text" id="searchInput" class="form-control" placeholder="Enter Test Name (e.g., Thyroid Test)">
+          <button class="btn btn-primary" onclick="searchTest()">Search</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="results" class="table-container"></div>
+  </div>
+
+  <script>
+    const labData = [
+      { testName: "Thyroid Test", lab: "Apollo Lab", price: 500 },
+      { testName: "Thyroid Test", lab: "Dr. Lal Path Labs", price: 450 },
+      { testName: "Blood Sugar", lab: "Apollo Lab", price: 250 },
+      { testName: "Blood Sugar", lab: "Dr. Lal Path Labs", price: 200 },
+      { testName: "Liver Function", lab: "SRL Diagnostics", price: 700 },
+      { testName: "Liver Function", lab: "Apollo Lab", price: 750 },
+      { testName: "MRI Scan", lab: "Dr. Lal Path Labs", price: 200 },
+      { testName: "Ultrasound", lab: "SRL Diagnostics", price: 700 },
+      { testName: "Angiography", lab: "Apollo Lab", price: 750 },
+      { testName: "Echocardiography", lab: "Apollo Lab", price: 750 },
+      { testName: "Pregnancy", lab: "Apollo Lab", price: 750 },
+      { testName: "Glucose Tolerance ", lab: "Apollo Lab", price: 750 },
+      { testName: "Genetic", lab: "Apollo Lab", price: 750 },
+    ];
+
+    function searchTest() {
+      const searchValue = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = labData.filter(item => item.testName.toLowerCase().includes(searchValue));
+      const resultsDiv = document.getElementById("results");
+      if (filtered.length === 0) {
+        resultsDiv.innerHTML = `<div class='alert alert-warning text-center'>No results found. Please try a different test name.</div>`;
+        return;
+      }
+
+      let tableHTML = `
+        <table class="table table-bordered table-hover mt-4 bg-white shadow">
+          <thead class="table-primary">
+            <tr>
+              <th>Test Name</th>
+              <th>Lab</th>
+              <th>Price (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      filtered.forEach(item => {
+        tableHTML += `
+          <tr>
+            <td>${item.testName}</td>
+            <td>${item.lab}</td>
+            <td>₹${item.price}</td>
+          </tr>
+        `;
+      });
+
+      tableHTML += `</tbody></table>`;
+      resultsDiv.innerHTML = tableHTML;
+    }
+  </script>
+
+</body>
+</html>

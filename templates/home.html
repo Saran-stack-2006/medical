@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Care - Your Health, Our Priority</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hero-section {
+            .hero-section {
+    text-align: center;
+    padding: 50px 20px; /* Reduce padding */
+    color: white;
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh; /* Ensures section size */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+        }
+        .btn-primary {
+            background-color: #28a745;
+            border: none;
+            font-size: 1.2rem;
+            padding: 12px 25px;
+        }
+        .services-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .services-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .services-section p {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    {% load static %}
+
+    <!-- Hero Section --><center>
+    <section class="hero-section">
+        <div class="container">
+            <img src="{% static 'assets/image.1.jpg' %}" alt="Healthcare" width="1000" height="auto">
+            <h1>Your Trusted Healthcare Partner</h1>
+            <p>We are dedicated to providing world-class healthcare services with the latest medical advancements and a compassionate approach. Our expert doctors are available 24/7 to guide you on your health journey, ensuring you receive the best medical attention whenever you need it.</p>
+            <p>With our seamless online platform, you can consult with specialists, receive personalized treatment plans, and order your medications effortlessly from the comfort of your home. Your well-being is our top priority, and we strive to make healthcare more accessible and convenient for everyone.</p>
+            <p>Our commitment extends beyond treatment. We focus on preventive care, wellness programs, and health monitoring to keep you and your loved ones in the best health. With advanced technology and an experienced medical team, we ensure quality care that you can trust.</p>
+        </center>
+            <center>
+            <a href="#services" class="btn btn-primary btn-lg">Explore Our Services</a>
+        </div>
+    </center>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2>Comprehensive Healthcare Services</h2>
+            <p>Our virtual consultation service ensures that you can connect with experienced doctors at any time, eliminating long waits and unnecessary visits to healthcare facilities. With just a few clicks, you can receive expert medical advice from the comfort of your home, making healthcare more accessible than ever.</p>
+            <p>Ordering and managing medications has never been easier with our seamless online pharmacy service. We provide timely doorstep delivery of prescribed medicines, ensuring that you never run out of essential treatments. Our goal is to simplify the process of obtaining medication, reducing stress and saving you valuable time.</p>
+            <p>We prioritize early detection and accurate diagnosis through our advanced laboratory testing services. Our at-home sample collection feature ensures convenience, while our state-of-the-art diagnostic tools provide quick and reliable results. By focusing on timely intervention, we help individuals take control of their health before conditions worsen.</p>
+            <p>In addition to medical treatments, we believe in holistic well-being. Our wellness and nutrition guidance programs offer personalized diet plans and fitness recommendations that promote a healthier lifestyle. By combining expert advice with scientifically backed strategies, we empower individuals to achieve long-term health and wellness goals.</p>
+            <p>Medical emergencies require immediate attention, and our emergency support team is always prepared to respond swiftly. Whether it's urgent medical assistance or guidance in a critical situation, we ensure that patients receive the care they need without delay. Your safety and health are our utmost priorities, and we are dedicated to providing reliable emergency healthcare support whenever required.</p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

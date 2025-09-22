@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referral Bonus System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #fff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .referral-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .referral-card h2 {
+      color: #007bff;
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .referral-card p {
+      font-size: 16px;
+      margin-bottom: 25px;
+      color: #444;
+    }
+
+    .referral-code-box {
+      background-color: #f1f3f4;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #333;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .btn-copy, .btn-invite {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px 5px;
+      transition: 0.3s;
+    }
+
+    .btn-copy {
+      background: #fbbc05;
+      color: #fff;
+    }
+
+    .btn-copy:hover {
+      background: #e0a800;
+    }
+
+    .btn-invite {
+      background: #28a745;
+      color: #fff;
+    }
+
+    .btn-invite:hover {
+      background: #218838;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #666;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="referral-card">
+  <h2>Refer & Earn ₹100</h2>
+  <p>Invite your friends and get ₹100 in your wallet when they sign up using your referral code.</p>
+
+  <div class="referral-code-box" id="referralCode">SARAN100</div>
+
+  <div>
+    <button class="btn-copy" onclick="copyReferralCode()">Copy Code</button>
+    <button class="btn-invite" onclick="shareReferral()">Invite Now</button>
+  </div>
+
+  <p class="note">* Wallet credit will be applied after successful signup of your friend.</p>
+</div>
+
+<script>
+  function copyReferralCode() {
+    const code = document.getElementById("referralCode").innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      alert("Referral code copied to clipboard!");
+    });
+  }
+
+  function shareReferral() {
+    const text = "Join now and use my referral code SARAN100 to get ₹100 bonus!";
+    const shareURL = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+    window.open(shareURL, '_blank');
+  }
+</script>
+
+</body>
+</html>

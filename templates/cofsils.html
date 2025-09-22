@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cofsils Lozenges - Buy Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .product-img {
+      max-height: 400px;
+      object-fit: contain;
+    }
+    .price-tag {
+      font-size: 1.5rem;
+      color: #198754;
+    }
+    .original-price {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .discount {
+      color: red;
+      font-weight: bold;
+    }
+    .flavour-btn {
+      border: 1px solid #198754;
+      border-radius: 20px;
+      padding: 5px 15px;
+      margin: 5px;
+      background-color: white;
+    }
+    .product-detail-heading {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" action="{% url 'cofsils' %}">
+    {% csrf_token %}
+    <div class="container py-5">
+      <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-5 text-center">
+          <img src="../static/assets/image20.jpg" class="img-fluid border rounded shadow product-img" alt="Cofsils Lozenges" width="500" height="500">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-7">
+          <h3>Cofsils Lozenges (Orange)</h3>
+          <p class="text-muted">Soothing relief from sore throat and cough</p>
+
+          <!-- Ratings -->
+          <div class="d-flex align-items-center mb-2">
+            <span class="me-2">★★★★☆</span>
+            <small class="text-muted">(2156 ratings)</small>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <span class="price-tag">₹45.00</span>
+            <span class="original-price ms-2">₹50.00</span>
+            <span class="discount ms-2">10% OFF</span>
+          </div>
+
+          <!-- Pack Size -->
+          <h6>Pack Size</h6>
+          <button class="flavour-btn bg-success text-white">10 Lozenges</button>
+          <button class="flavour-btn">20 Lozenges</button>
+
+          <!-- Add to Cart -->
+          <a class="btn btn-warning" href="{% url 'buy_now_form' %}">Buy Now</a>
+
+          <!-- Delivery -->
+          <p><strong>Delivery:</strong> Usually delivered in 2-4 working days</p>
+
+          <!-- Offers -->
+          <div class="mt-4 p-3 border rounded bg-light">
+            <p class="mb-1"><strong>Offers for you</strong></p>
+            <ul class="mb-0">
+              <li>🛒 Get extra 5% off on packs above ₹100</li>
+              <li>💳 ₹25 Cashback on Paytm payments</li>
+            </ul>
+          </div>
+
+          <!-- Product Detail -->
+          <div class="product-detail-heading">Cofsils Lozenges - Product Info</div>
+          <p>Cofsils lozenges provide quick relief from throat irritation, sore throat, and dry cough. They contain antiseptic agents that fight infection while soothing the throat.</p>
+
+          <p><strong>Key Ingredients:</strong></p>
+          <ul>
+            <li>Amylmetacresol (0.6 mg)</li>
+            <li>2,4-Dichlorobenzyl alcohol (1.2 mg)</li>
+          </ul>
+
+          <p><strong>Key Benefits:</strong></p>
+          <ul>
+            <li>Relieves sore throat and cough</li>
+            <li>Antibacterial and soothing action</li>
+            <li>Refreshing orange flavour</li>
+          </ul>
+
+          <p><strong>Directions for Use:</strong> Dissolve one lozenge slowly in the mouth every 2–3 hours or as directed by your doctor.</p>
+          <p><strong>Safety Information:</strong></p>
+          <ul>
+            <li>Keep out of reach of children</li>
+            <li>Do not exceed recommended dosage</li>
+            <li>Store in a cool, dry place</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Complete Your Profile</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: slideIn 0.8s ease forwards;
+      width: 400px;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+      color: #444;
+    }
+
+    textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    textarea:focus, select:focus {
+      outline: none;
+      border-color: #2575fc;
+      box-shadow: 0 0 5px rgba(37, 117, 252, 0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 25px;
+      background: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1e63d0;
+    }
+  </style>
+</head>
+<body>
+  <form class="form-container" method="POST">
+    {% csrf_token %}
+    <h2>Complete Your Profile</h2>
+
+    <label for="address">Address</label>
+    <textarea id="address" name="address" rows="3" placeholder="Enter your address..." required></textarea>
+
+    <label for="health_details">Health Details</label>
+    <textarea id="health_details" name="health_details" rows="3" placeholder="Mention any health issues, allergies, etc..." required></textarea>
+
+    <label for="preferences">Preferences</label>
+    <textarea id="preferences" name="preferences" rows="2" placeholder="Your preferences..." required></textarea>
+
+    <button type="submit">Save Profile</button>
+  </form>
+</body>
+</html>
+

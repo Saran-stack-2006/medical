@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dabur Chyawanprash - Buy Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .product-img {
+      max-height: 400px;
+      object-fit: contain;
+    }
+    .price-tag {
+      font-size: 1.5rem;
+      color: #198754;
+    }
+    .original-price {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .discount {
+      color: red;
+      font-weight: bold;
+    }
+    .flavour-btn {
+      border: 1px solid #198754;
+      border-radius: 20px;
+      padding: 5px 15px;
+      margin: 5px;
+      background-color: white;
+    }
+    .product-detail-heading {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" action="{% url 'dabur' %}">
+    {% csrf_token %}
+    <div class="container py-5">
+      <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-5 text-center">
+          <img src="../static/assets/image19.jpg" class="img-fluid border rounded shadow product-img" alt="Dabur Chyawanprash" width="500" height="500">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-7">
+          <h3>Dabur Chyawanprash - 2x Immunity</h3>
+          <p class="text-muted">Boosts overall immunity and helps fight illness naturally. Ideal for all age groups.</p>
+
+          <!-- Ratings -->
+          <div class="d-flex align-items-center mb-2">
+            <span class="me-2">★★★★☆</span>
+            <small class="text-muted">(4256 ratings)</small>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <span class="price-tag">₹285.00</span>
+            <span class="original-price ms-2">₹320.00</span>
+            <span class="discount ms-2">11% OFF</span>
+          </div>
+
+          <!-- Pack Size -->
+          <h6>Pack Size</h6>
+          <button class="flavour-btn bg-success text-white">500g</button>
+          <button class="flavour-btn">1kg</button>
+          <button class="flavour-btn">2kg</button>
+
+          <!-- Add to Cart -->
+          <a class="btn btn-warning" href="{% url 'buy_now_form' %}">Buy Now</a>
+
+          <!-- Delivery -->
+          <p><strong>Delivery:</strong> Within 2-4 working days</p>
+
+          <!-- Offers -->
+          <div class="mt-4 p-3 border rounded bg-light">
+            <p class="mb-1"><strong>Offers for you</strong></p>
+            <ul class="mb-0">
+              <li>🎉 Get 5% extra off on 2 or more packs</li>
+              <li>💳 Flat ₹25 Cashback on UPI orders</li>
+              <li>🚚 Free delivery on orders above ₹500</li>
+            </ul>
+          </div>
+
+          <!-- Product Detail -->
+          <div class="product-detail-heading">Product Details</div>
+          <p><strong>Dabur Chyawanprash</strong> is a time-tested Ayurvedic formulation made using over 40 herbs and natural ingredients like Amla, Ashwagandha, Giloy, Pippali, and more. It helps build strength and stamina and strengthens the immune system.</p>
+
+          <p><strong>Key Benefits:</strong></p>
+          <ul>
+            <li>Strengthens immune system and protects from seasonal infections</li>
+            <li>Boosts energy levels and improves digestion</li>
+            <li>Enhances respiratory health</li>
+            <li>Good for children, adults, and elderly people</li>
+          </ul>
+
+          <p><strong>How to Use:</strong> Take 1 teaspoon (10-12g) twice daily – preferably with warm milk.</p>
+
+          <p><strong>Storage:</strong> Store in a cool and dry place. Keep the container tightly closed after use.</p>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

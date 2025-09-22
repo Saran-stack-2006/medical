@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🩺 Medical Diagnostics</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    /* 🎨 Global Styling */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9eff5);
+      margin: 0;
+      padding: 20px;
+      
+    }
+
+    /* 🧪 Container for Symptom Input */
+    .container-custom {
+      max-width: 700px;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .diagnostics-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    input#symptoms {
+      border: 2px solid #dee2e6;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 1rem;
+    }
+
+    button.btn-primary {
+      background: linear-gradient(to right, #0d6efd, #5a67d8);
+      border: none;
+      padding: 12px 25px;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    button.btn-primary:hover {
+      background: linear-gradient(to right, #0b5ed7, #4338ca);
+    }
+
+    #result {
+      font-size: 1rem;
+      color: #198754;
+      margin-top: 10px;
+      font-weight: 400;
+    }
+
+    /* 🧬 CBC Test Card Styling */
+   /* 🧬 CBC Test Card Styling — Smaller Version */
+.cbc-card {
+  width: 280px; /* smaller width */
+  background: #ffffff;
+  border-radius: 16px;
+  margin: 15px auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.cbc-card:hover {
+  transform: translateY(-6px);
+}
+
+.cbc-card img {
+  width: 100%;
+  height: 150px; /* reduced image height */
+  object-fit: cover;
+}
+
+.cbc-content {
+  padding: 14px;
+}
+
+.cbc-title {
+  font-size: 1.2rem; /* slightly smaller font */
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.cbc-description {
+  color: #6c757d;
+  font-size: 0.85rem;
+  margin: 10px 0;
+}
+
+.cbc-button {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+
+.cbc-button:hover {
+  background: linear-gradient(to right, #5f0ea6, #1b6cf4);
+}
+
+  </style>
+</head>
+
+
+<body >
+
+  <!-- 💉 Symptom Input Section -->
+  <div class="container-custom">
+    <img src="../static/assets/image2.jpg" alt="Medical Icon" class="diagnostics-image" />
+    <h2 class="mb-3 text-primary fw-bold">🩺 Medical Diagnostics</h2>
+    <p class="text-muted mb-4">Enter your symptoms to get a possible diagnosis:</p>
+
+    <input type="text" class="form-control mb-3" placeholder="Enter symptoms" id="symptoms" />
+    <button class="btn btn-primary mb-3" onclick="diagnose()">Diagnose</button>
+
+    <p id="result"></p>
+  </div>
+
+<center>
+  <h1>TEST CATEORIES</h1>
+</center>
+
+  <!-- 🧪 CBC Test Card card 1-->
+  <!-- 🧪 CBC Test Card Section -->
+<div class="container my-5">
+  <div class="row justify-content-center">
+
+    <!-- 🧪 CBC Test Card 1 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 34.jpeg" alt="CBC Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">Complete Blood Count (CBC)</div>
+          <div class="cbc-description">
+            Checks overall health, detects disorders like anemia, infection, and leukemia.
+          </div>
+          <a href="{% url 'cbc' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🧪 CBC Test Card 2 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 35.jpeg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">Comprehensive Metabolic Panel (CMP)</div>
+          <div class="cbc-description">
+            Evaluates liver and kidney function, blood sugar, protein.
+          </div>
+          <a href="{% url 'cmp' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🧪 CBC Test Card 3 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 35.jpeg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">Liver Function Test <br> (LFT)</div>
+          <div class="cbc-description">
+            Measures liver enzymes and proteins to assess liver health.
+          </div>
+          <a href="{% url 'lft' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+     
+    <!-- 🧪 CBC Test Card 4 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 36.jpeg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">Lipid Profile <br> (LP)</div>
+          <div class="cbc-description">
+            Measures cholesterol and triglycerides; important for heart health.
+          </div>
+          <a href="{% url 'profile' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+    <!-- Add more cards here following the same pattern -->
+       <!-- 🧪 CBC Test Card 5 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 37.jpeg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">Kidney Function Test (KFT)</div>
+          <div class="cbc-description">
+            Measures creatinine and urea levels to check how well your kidneys are working. 
+          </div>
+          <a href="{% url 'kidney' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+      <!-- 🧪 CBC Test Card 6 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 38.jpeg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">Thyroid Function Test (TFT)
+
+          </div>
+          <div class="cbc-description">
+            Checks levels of T3, T4, and TSH to evaluate thyroid activity.
+
+
+          </div>
+          <a href="{% url 'thyoid' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 39.jpg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">
+            Blood Sugar Test (FBS/RBS/HbA1c)
+          </div>
+          <div class="cbc-description">
+           
+            Measures blood glucose levels to detect diabetes.
+          </div>
+          <a href="{% url 'blood' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🧪 CBC Test Card 8 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 40.jpeg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">Urinalysis
+
+          </div>
+          <div class="cbc-description">
+            Analyzes urine to detect urinary tract infections, kidney issues, or diabetes.
+
+
+          </div>
+          <a href="{% url 'urin' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+        <!-- 🧪 CBC Test Card 9 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 41.jpeg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">Vitamin D Test
+
+          </div>
+          <div class="cbc-description">
+            Measures Vitamin D levels; low levels can affect bones and immune function.
+
+          </div>
+          <a href="{% url 'vitamin1' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+      <!-- 🧪 CBC Test Card 10  -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 42.jpeg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">Vitamin B12 Test
+
+          </div>
+          <div class="cbc-description">
+            Detects deficiency that can lead to fatigue, memory issues, or nerve damage.
+
+          </div>
+          <a href="{% url 'vitamin2' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+     <!-- 🧪 CBC Test Card 11  -->
+     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 43.jpeg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">COVID-19 RT-PCR Test
+
+
+
+          </div>
+          <div class="cbc-description">
+            Detects presence of COVID-19 virus.
+
+          </div>
+          <a href="{% url 'covid' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+     <!-- 🧪 CBC Test Card 12  -->
+     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="cbc-card">
+        <img src="../static/assets/image 44.jpeg" alt="CMP Test Image" />
+        <div class="cbc-content">
+          <div class="cbc-title">C-Reactive Protein (CRP)
+
+
+
+          </div>
+          <div class="cbc-description">Detects inflammation or infection in the body.
+
+          </div>
+          <a href="{% url 'reactive' %}" class="cbc-button">📅 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+</body>
+
+  <!-- 🧠 Diagnosis Logic -->
+  <script>
+    function diagnose() {
+      const symptom = document.getElementById("symptoms").value.toLowerCase();
+      let result = "❗ Unable to determine. Please consult a healthcare professional.";
+
+      if (symptom.includes("fever")) result = "🌡️ Possible infection or viral fever. Tablets: Paracetamol, Ibuprofen.";
+      if (symptom.includes("cough")) result = "🤧 Could be flu or cold. Syrups: Benadryl, Cetirizine.";
+      if (symptom.includes("headache")) result = "🧠 May be tension headache. Tablets: Paracetamol, Sumatriptan.";
+      if (symptom.includes("stomach pain")) result = "🍽️ Might be indigestion. Tablets: Antacids, Buscopan.";
+      if (symptom.includes("cold")) result = "❄️ Likely viral. Tablets: Cetirizine, Paracetamol.";
+      if (symptom.includes("vomiting")) result = "🤢 Could be infection. Tablets: Ondansetron, ORS.";
+      if (symptom.includes("diarrhea")) result = "🚽 Possible food poisoning. Tablets: Loperamide, ORS.";
+      if (symptom.includes("body pain")) result = "💪 Could be flu. Tablets: Ibuprofen, Naproxen.";
+
+      document.getElementById("result").innerText = result;
+    }
+  </script>
+
+</body>
+</html>

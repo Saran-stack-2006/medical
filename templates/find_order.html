@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>247 Pharmed - Find Your Order</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #d4fc79, #96e6a1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .order-container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            color: #2d6a4f;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #40916c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background-color: #2d6a4f;
+        }
+        .message {
+            margin-top: 20px;
+            color: #e63946;
+            font-weight: bold;
+        }
+        .logo {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="order-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/4320/4320337.png" class="logo" alt="247 Pharmed Logo">
+        <h2>Find Your 24/7 Pharmed Order</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="order_id" placeholder="Enter Order ID" required>
+            <input type="text" name="mobile" placeholder="Enter Mobile Number" required>
+            <button type="submit">Search Order</button>
+        </form>
+        {% for message in messages %}
+            <p class="message">{{ message }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

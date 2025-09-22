@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Himalaya Ashwagandha - Buy Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .product-img {
+      max-height: 400px;
+      object-fit: contain;
+    }
+    .price-tag {
+      font-size: 1.5rem;
+      color: #198754;
+    }
+    .original-price {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .discount {
+      color: red;
+      font-weight: bold;
+    }
+    .flavour-btn {
+      border: 1px solid #198754;
+      border-radius: 20px;
+      padding: 5px 15px;
+      margin: 5px;
+      background-color: white;
+    }
+    .product-detail-heading {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" action="{% url 'himala' %}">
+    {% csrf_token %}
+    <div class="container py-5">
+      <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-5 text-center">
+          <img src="../static/assets/image18.jpg" class="img-fluid border rounded shadow product-img" alt="Ashwagandha Tablet">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-7">
+          <h3>Himalaya Ashwagandha Tablet</h3>
+          <p class="text-muted">General wellness supplement that helps rejuvenate mind & body</p>
+
+          <!-- Ratings -->
+          <div class="d-flex align-items-center mb-2">
+            <span class="me-2">★★★★☆</span>
+            <small class="text-muted">(1213 ratings)</small>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <span class="price-tag">₹150.00</span>
+            <span class="original-price ms-2">₹180.00</span>
+            <span class="discount ms-2">17% OFF</span>
+          </div>
+
+          <!-- Pack Size -->
+          <h6>Pack Size</h6>
+          <button class="flavour-btn bg-success text-white">60 Tablets</button>
+          <button class="flavour-btn">120 Tablets</button>
+
+          <!-- Add to Cart -->
+          <a class="btn btn-warning" href="{% url 'buy_now_form' %}">Buy Now</a>
+
+          <!-- Delivery -->
+          <p><strong>Delivery:</strong> Within 2-3 working days</p>
+
+          <!-- Offers -->
+          <div class="mt-4 p-3 border rounded bg-light">
+            <p class="mb-1"><strong>Offers for you</strong></p>
+            <ul class="mb-0">
+              <li>💸 Extra 10% off with code: WELLNESS10</li>
+              <li>🏦 ₹50 Cashback via UPI on first order</li>
+            </ul>
+          </div>
+
+          <!-- Product Detail -->
+          <div class="product-detail-heading">Ashwagandha Details</div>
+          <p>Ashwagandha is known for its adaptogenic properties, helping the body manage stress and fatigue while promoting overall well-being.</p>
+          <p><strong>Key Benefits:</strong></p>
+          <ul>
+            <li>Reduces stress and anxiety</li>
+            <li>Improves energy and stamina</li>
+            <li>Supports cognitive function and immunity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

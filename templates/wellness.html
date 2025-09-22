@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractive Medical Product Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffdd57;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-card {
+            width: 250px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .add-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+   
+
+<!-- Navbar -->
+<div class="navbar">
+    <h1>MedStore</h1>
+    <div class="nav-links">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'referral' %}"> Referral System</a>
+        <a href="{% url 'discount1' %}">Discount</a>
+        <a href="{% url 'deals1' %}">Deals</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </div>
+</div>
+
+<!-- Product Cards -->
+<div class="product-container">
+    <div class="product-card">
+        <img src="../static/assets/image18.jpg" class="product-image" alt="Product">
+        <div class="product-title">himalaya ashvagandha general wellness tablet</div>
+        <a class="add-btn" href="{% url 'himala' %}">ADD TO CART</a>
+
+    </div>
+    <div class="product-card">
+        <img src="../static/assets/image19.jpg" class="product-image" alt="Product">
+        <div class="product-title">Dabur Chyawanprash has also been found to relieve gastritis.</div>
+         <a class="add-btn" href="{% url 'dabur' %}">BUY NOW</a>
+    </div>
+    <div class="product-card">
+        <img src="../static/assets/image20.jpg" class="product-image" alt="Product">
+        <div class="product-title">Cofsils Lozenges Lemon Ginger is a medication used to provide.</div>
+               <a class="add-btn" href="{% url 'cofsils' %}">BUY NOW</a>
+
+    </div>
+    <div class="product-card">
+        <img src="../static/assets/image21.jpg" class="product-image" alt="Product">
+        <div class="product-title">Himalaya Koflet Lozenges 160's + Free 40's Lozenges are a soothing. </div>
+        <a class="add-btn" href="{% url 'Koflet' %}">BUY NOW</a>
+    </div>
+    <div class="product-card">
+        <img src="../static/assets/image22.jpg" class="product-image" alt="Product">
+        <div class="product-title">The Amrutanjan Relief Nasal Inhaler 0.75gms is a useful companion.</div>
+       <a class="add-btn" href="{% url 'sara' %}">BUY NOW</a>
+    </div>
+    <div class="product-card">
+        <img src="../static/assets/image23.jpg" class="product-image" alt="Product">
+        <div class="product-title">SBL Cholesterinum 6x Trituration Tablet is used for managing liver.. </div>
+        <a class="add-btn" href="{% url 'saran' %}">BUY NOW</a>
+    </div>
+    <div class="product-card">
+        <img src="../static/assets/image24.jpg" class="product-image" alt="Product">
+        <div class="product-title">Useful in case of treatment of gallbladder and liver, hepatitis.</div>Drops 
+         <a class="add-btn" href="{% url 'drops' %}">BUY NOW</a>
+    </div>
+    <div class="product-card">
+        <img src="../static/assets/image25.jpg" class="product-image" alt="Product">
+        <div class="product-title">SBL Cholesterinum 6x Trituration Tablet is used for managing liver.</div>
+         <a class="add-btn" href="{% url 'choles' %}">BUY NOW</a>
+    </div>
+</div>
+
+</body>
+</html>

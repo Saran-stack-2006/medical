@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Usage Instructions</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+        .card { background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 20px; margin-bottom: 15px; }
+        h2 { color: #333; }
+        .search-form { margin-bottom: 20px; }
+        input[type="text"] { padding: 8px; width: 300px; border-radius: 5px; border: 1px solid #ccc; }
+        button { padding: 8px 12px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <center>
+
+    <h1>Search Medicine Instructions</h1>
+
+    <!-- Search Form -->
+    <form method="get" class="search-form">
+        <input type="text" name="q" placeholder="Enter medicine name..." value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if query %}
+        {% if medicines %}
+            {% for med in medicines %}
+            <div class="card">
+                <h2>{{ med.name }}</h2>
+                <p><strong>Dosage:</strong> {{ med.dosage }}</p>
+                <p><strong>Warnings:</strong> {{ med.warnings }}</p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No medicines found for "{{ query }}".</p>
+        {% endif %}
+    {% endif %}
+</center>
+</body>
+</html>

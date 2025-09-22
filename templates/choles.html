@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SBL Cholesterinum 6X - Buy Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .product-img {
+      max-height: 400px;
+      object-fit: contain;
+    }
+    .price-tag {
+      font-size: 1.5rem;
+      color: #198754;
+    }
+    .original-price {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .discount {
+      color: red;
+      font-weight: bold;
+    }
+    .product-detail-heading {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" action="{% url 'choles' %}">
+    {% csrf_token %}
+    <div class="container py-5">
+      <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-5 text-center">
+          <img src="../static/assets/image25.jpg" class="img-fluid border rounded shadow product-img" alt="SBL Cholesterinum 6X" width="500" height="500">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-7">
+          <h3>SBL Cholesterinum 6X Tablets</h3>
+          <p class="text-muted">Homeopathic medicine for managing high cholesterol and related conditions</p>
+
+          <!-- Ratings -->
+          <div class="d-flex align-items-center mb-2">
+            <span class="me-2">★★★★☆</span>
+            <small class="text-muted">(1278 ratings)</small>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <span class="price-tag">₹95.00</span>
+            <span class="original-price ms-2">₹105.00</span>
+            <span class="discount ms-2">10% OFF</span>
+          </div>
+
+          <!-- Pack Size -->
+          <h6>Pack Size</h6>
+          <span class="badge bg-success">20g</span>
+
+          <!-- Add to Cart -->
+          <a class="btn btn-warning mt-3" href="{% url 'buy_now_form' %}">Buy Now</a>
+
+          <!-- Delivery -->
+          <p class="mt-2"><strong>Delivery:</strong> Usually delivered in 2-4 working days</p>
+
+          <!-- Offers -->
+          <div class="mt-4 p-3 border rounded bg-light">
+            <p class="mb-1"><strong>Offers for you</strong></p>
+            <ul class="mb-0">
+              <li>🛍️ Buy 2 get ₹10 off</li>
+              <li>💳 ₹25 Cashback on UPI/Paytm payments</li>
+            </ul>
+          </div>
+
+          <!-- Product Detail -->
+          <div class="product-detail-heading">SBL Cholesterinum 6X - Product Info</div>
+          <p><strong>Description:</strong> Cholesterinum 6X is a homeopathic remedy derived from cholesterol. It is primarily used for managing liver and gallbladder conditions and controlling high cholesterol levels naturally.</p>
+
+          <p><strong>Key Uses:</strong></p>
+          <ul>
+            <li>Helps in lowering bad cholesterol levels</li>
+            <li>Supports liver and gallbladder health</li>
+            <li>Assists in managing fatty liver and gallstones</li>
+          </ul>
+
+          <p><strong>Directions for Use:</strong></p>
+          <ul>
+            <li>Adults: 4 tablets 2-3 times a day or as prescribed by a physician</li>
+            <li>Dissolve in mouth or take with water</li>
+          </ul>
+
+          <p><strong>Safety Information:</strong></p>
+          <ul>
+            <li>Read the label carefully before use</li>
+            <li>Do not exceed the recommended dosage</li>
+            <li>Store in a cool, dry place away from sunlight</li>
+            <li>Keep out of reach of children</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

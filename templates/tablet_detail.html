@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ tablet.name }} - Details</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #f1f4f9, #dff1f5);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 30px 40px;
+      width: 450px;
+      animation: slideIn 1s ease-out;
+    }
+
+    .card h2 {
+      color: #2b7a78;
+      margin-bottom: 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .info-block {
+      margin-bottom: 15px;
+      font-size: 17px;
+      color: #333;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .info-block strong {
+      color: #17252a;
+    }
+
+    .status {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+
+    .status.available {
+      color: green;
+    }
+
+    .status.not-available {
+      color: red;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>💊 {{ tablet.name }}</h2>
+
+    <div class="info-block">
+      <strong>🧪 Composition:</strong> {{ tablet.composition }}
+    </div>
+
+    <div class="info-block">
+      <strong>💉 Dosage:</strong> {{ tablet.dosage }}
+    </div>
+
+    <div class="info-block">
+      <strong>⚠️ Side Effects:</strong> {{ tablet.side_effects }}
+    </div>
+
+   
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Report Analyzed</h2>
+<p>Test: {{ report.test_name }} — Value: {{ report.test_value }}</p>
+
+{% if suggestion %}
+  <p><strong>Suggestion:</strong> Your {{ report.test_name }} level is abnormal. Please consult a <b>{{ suggestion }}</b>.</p>
+  <h3>Available {{ suggestion }}s:</h3>
+  <ul>
+    {% for doc in doctors %}
+      <li>{{ doc.name }} — <a href="#">Book Appointment</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Your test value is within normal range. No consultation needed.</p>
+{% endif %}
+
+    </body>
+</html>

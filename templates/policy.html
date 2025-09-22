@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeIn 1s forwards;
+        }
+        h2 {
+            color: #1e3c72;
+            font-size: 28px;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #1e3c72;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .policy {
+            text-align: left;
+            padding: 15px;
+            font-size: 18px;
+            background: #ffffff;
+            border-radius: 10px;
+            margin: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s forwards;
+            transition: transform 0.3s ease-in-out;
+        }
+        .policy:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Refund Policy</h2>
+        <div class="policy">🔹 <strong>Eligibility for Refunds</strong> – Refunds are applicable only under specific conditions, such as incorrect billing or service failure.</div>
+        <div class="policy">🔹 <strong>Consultation Fees</strong> – Once a consultation has started, fees are generally non-refundable. Refunds may be allowed if the doctor cancels.</div>
+        <div class="policy">🔹 <strong>Medicine Orders</strong> – Refunds for medicines are only allowed if the product is damaged, expired, or incorrect.</div>
+        <div class="policy">🔹 <strong>Cancellation Policy</strong> – Orders and appointments can be canceled within a specified time frame for a refund.</div>
+        <div class="policy">🔹 <strong>Processing Time</strong> – Refunds are processed within 5-10 business days and credited to the original payment method.</div>
+        <div class="policy">🔹 <strong>No-Show Policy</strong> – If a patient misses an appointment without prior notice, the consultation fee is non-refundable.</div>
+        <div class="policy">🔹 <strong>Technical Issues</strong> – If a service is disrupted due to technical failure, a refund or rescheduling option may be provided.</div>
+        <div class="policy">🔹 <strong>Lab Test Refunds</strong> – Refunds for lab tests are applicable only if the test is canceled before sample collection.</div>
+        <div class="policy">🔹 <strong>Payment Disputes</strong> – Customers should contact support within 7 days if they experience any payment-related issues.</div>
+        <div class="policy">🔹 <strong>Policy Updates</strong> – The company reserves the right to modify the refund policy at any time. Changes will be communicated through official channels.</div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let policies = document.querySelectorAll(".policy");
+            policies.forEach((policy, index) => {
+                policy.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html>

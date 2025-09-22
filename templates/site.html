@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>24x7 Pharmamed - Site Map</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7ff, #f4f9ff);
+      animation: fadeIn 1s ease-in-out;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 950px;
+      margin: 70px auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+      animation: zoomIn 1.2s ease-out;
+    }
+    h1 {
+      text-align: center;
+      color: #0077cc;
+      margin-bottom: 30px;
+      font-size: 40px;
+      animation: pulse 2s infinite;
+    }
+    .section h2 {
+      color: #004d80;
+      margin-bottom: 20px;
+      font-size: 26px;
+      border-bottom: 2px solid #0077cc;
+      padding-bottom: 5px;
+      animation: fadeSlide 1.3s ease forwards;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      margin: 18px 0;
+      transform: translateX(-20px);
+      opacity: 0;
+      animation: listFade 0.8s forwards;
+    }
+    li:nth-child(even) {
+      animation-delay: 0.3s;
+    }
+    li:nth-child(odd) {
+      animation-delay: 0.6s;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+      font-size: 22px;
+      display: inline-block;
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      padding-left: 8px;
+    }
+    a::before {
+      content: '➜';
+      position: absolute;
+      left: -20px;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    li:hover a {
+      color: #005fa3;
+      transform: scale(1.05);
+    }
+    li:hover a::before {
+      left: -25px;
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(0.85); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes listFade {
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Site Map - 24x7 Pharmamed</h1>
+    <div class="section">
+      <h2>Website Sections</h2>
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">💊 About Us</a></li>
+        <li><a href="products.html">🧴 Products</a></li>
+        <li><a href="services.html">🩺 Services</a></li>
+        <li><a href="contact.html">📞 Contact</a></li>
+        <li><a href="faq.html">❓ FAQ</a></li>
+        <li><a href="login.html">🔐 Login</a></li>
+        <li><a href="signup.html">📝 Signup</a></li>
+        <li><a href="cart.html">🛒 Cart</a></li>
+        <li><a href="order-history.html">📦 Order History</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
